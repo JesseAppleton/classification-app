@@ -1,0 +1,31 @@
+<div class="background">
+  <div class="form-wrapper">
+  <h3>All classifications in this app is for demonstration purposes.</h3>
+    <mat-form-field appearance="fill">
+      <mat-label>Classification</mat-label>
+      <mat-select [(value)]="selectedClass">
+        <mat-option *ngFor="let classification of classifications" value="{{ classification.abbrev }}">
+          {{ classification.fullName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Disseminations</mat-label>
+      <mat-select [(value)]="selectedDissem" multiple>
+        <mat-option *ngFor="let dissemination of disseminationList" value="{{ dissemination.abbrev }}">
+          {{ dissemination.fullName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p>
+      <span class="bold" *ngIf="selectedClass.length > 0">
+        ({{ selectedClass }}<span *ngIf="selectedDissem.length > 0">//{{ selectedDissem }}</span>)
+      </span> 
+      This is how the data will look
+      <span class="bold" *ngIf="selectedClass.length > 0">
+        ({{ selectedClass }}<span *ngIf="selectedDissem.length > 0">//{{ selectedDissem }}</span>)
+      </span> 
+    </p>
+  </div>
+</div>
